@@ -216,3 +216,20 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# --- Project-specific ---
+# DuckDB vector store (rebuilt by ingestion pipeline)
+*.duckdb
+*.duckdb.wal
+data/vectors.duckdb
+
+# Loguru output (rotated/compressed)
+logs/*.log
+logs/*.zip
+
+# HuggingFace / sentence-transformers model cache (if a local cache dir is used)
+.cache/
+.hf_cache/
+
+# macOS
+.DS_Store
