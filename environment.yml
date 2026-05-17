@@ -10,9 +10,10 @@ dependencies:
       - fastapi>=0.110
       - uvicorn[standard]>=0.27
       - duckdb>=0.10
-      - sentence-transformers>=2.7
-      - transformers>=4.40
-      - torch>=2.2
+      - "numpy<2"                       # torch 2.2.x was built against NumPy 1.x ABI
+      - "torch>=2.2,<2.3"                # Intel Mac wheels stop at 2.2.2; pin to lock platform compat
+      - "transformers>=4.40,<4.50"      # >=4.50 requires torch>=2.4 which isn't available on Intel Mac
+      - "sentence-transformers>=2.7,<3.5"  # match transformers/torch combo above
       - loguru>=0.7
       - pydantic>=2.6
       - pydantic-settings>=2.2
